@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 
 using Grasshopper.Kernel;
+using Grasshopper.Kernel.Parameters;
 using Rhino.Geometry;
 
 namespace Weasel.Components
@@ -18,13 +19,31 @@ namespace Weasel.Components
 
         protected override void RegisterInputParams(GH_InputParamManager pManager)
         {
-            pManager.AddTimeParameter("Time A", "A", "First timestamp", GH_ParamAccess.item);
-            pManager.AddTimeParameter("Time B", "B", "Second timestamp", GH_ParamAccess.item);
+            Param_Time timeParamA = new Param_Time();
+            timeParamA.Name = "Time A";
+            timeParamA.NickName = "A";
+            timeParamA.Description = "Time A for comparison";
+            timeParamA.Access = GH_ParamAccess.item;
+            timeParamA.Optional = false;
+            pManager.AddParameter(timeParamA);
+
+            Param_Time timeParamB = new Param_Time();
+            timeParamB.Name = "Time B";
+            timeParamB.NickName = "B";
+            timeParamB.Description = "Time B for comparison";
+            timeParamB.Access = GH_ParamAccess.item;
+            timeParamB.Optional = false;
+            pManager.AddParameter(timeParamB);
         }
 
         protected override void RegisterOutputParams(GH_OutputParamManager pManager)
         {
-            pManager.AddBooleanParameter("Is Newer", "N", "True if Time A is more recent than Time B", GH_ParamAccess.item);
+            Param_Boolean resultParam = new Param_Boolean();
+            resultParam.Name = "Result";
+            resultParam.NickName = "R";
+            resultParam.Description = "True if Time A is more recent than Time B";
+            resultParam.Access = GH_ParamAccess.item;
+            pManager.AddParameter(resultParam);
         }
 
         protected override void SolveInstance(IGH_DataAccess DA)
