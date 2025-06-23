@@ -14,7 +14,7 @@ namespace Weasel
     {
 
         // Override the GH_Component's Icon property properly
-        protected override System.Drawing.Bitmap Icon => Resources.Weasel;
+        protected override System.Drawing.Bitmap Icon => Resources.Weasel_transparent;
 
         // Abstract properties for authorship
         protected abstract string Author { get; }
