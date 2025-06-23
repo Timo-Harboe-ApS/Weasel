@@ -4,22 +4,24 @@ using Grasshopper.Kernel;
 using Grasshopper.Kernel.Parameters;
 using Rhino.Geometry;
 using Weasel.Components.Base;
+using Weasel.Properties;
 
 namespace Weasel.Components
 {
     public class EnumTestComponent : WeaselComponent
     {
-        /// <summary>
-        /// Initializes a new instance of the EnumTestComponent class.
-        /// </summary>
+        protected override string Author => "Antoine Maes";
+        protected override string CoAuthor => "";
+
+        public override Guid ComponentGuid => new Guid("E8343DBA-A36D-4B87-9280-3CAC657DCA28");
+        // protected override System.Drawing.Bitmap Icon => Resources.<specific icon>;
+
+
         public EnumTestComponent()
           : base("EnumTestComponent", "enumTest",
               "description", "Weasle", "Time")
         {
         }
-
-        protected override string Author => "Antoine Maes";
-        protected override string CoAuthor => "";
 
         private enum TestEnum
         {
@@ -28,9 +30,7 @@ namespace Weasel.Components
             Option3 = 2
         }
 
-        /// <summary>
-        /// Registers all the input parameters for this component.
-        /// </summary>
+
         protected override void RegisterInputParams(GH_Component.GH_InputParamManager pManager)
         {
             Param_Enum test = new Param_Enum(typeof(TestEnum));
@@ -50,9 +50,7 @@ namespace Weasel.Components
             pManager.AddParameter(numberTest);
         }
 
-        /// <summary>
-        /// Registers all the output parameters for this component.
-        /// </summary>
+
         protected override void RegisterOutputParams(GH_Component.GH_OutputParamManager pManager)
         {
             // Add integer output for the enum value
@@ -62,10 +60,8 @@ namespace Weasel.Components
             pManager.AddTextParameter("Name", "N", "The name of the selected enum", GH_ParamAccess.item);
         }
 
-        /// <summary>
-        /// This is the method that actually does the work.
-        /// </summary>
-        /// <param name="DA">The DA object is used to retrieve from inputs and store in outputs.</param>
+
+
         protected override void SolveInstance(IGH_DataAccess DA)
         {
             int enumValue = 0;
@@ -89,27 +85,6 @@ namespace Weasel.Components
             {
                 AddRuntimeMessage(GH_RuntimeMessageLevel.Warning, "Invalid enum value selected");
             }
-        }
-
-        /// <summary>
-        /// Provides an Icon for the component.
-        /// </summary>
-        protected override System.Drawing.Bitmap Icon
-        {
-            get
-            {
-                //You can add image files to your project resources and access them like this:
-                // return Resources.IconForThisComponent;
-                return null;
-            }
-        }
-
-        /// <summary>
-        /// Gets the unique ID for this component. Do not change this ID after release.
-        /// </summary>
-        public override Guid ComponentGuid
-        {
-            get { return new Guid("E8343DBA-A36D-4B87-9280-3CAC657DCA28"); }
         }
     }
 }
