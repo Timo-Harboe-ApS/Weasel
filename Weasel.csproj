@@ -23,8 +23,13 @@
   </PropertyGroup>
   
   <ItemGroup>
+    <EmbeddedResource Include="Resources\Weasel.png" />
+  </ItemGroup>
+  
+  <ItemGroup>
     <PackageReference Include="EntityFramework" Version="5.0.0" />
     <PackageReference Include="Grasshopper" Version="8.0.23304.9001" ExcludeAssets="runtime" />
+	<PackageReference Include="System.Resources.Extensions" Version="7.0.0" />
   </ItemGroup>
   
   <!-- For Windows only builds -->
@@ -44,6 +49,19 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="Properties\Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Update="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
 
   <Target Name="BuildYakPackage" AfterTargets="DispatchToInnerBuilds">
