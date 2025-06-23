@@ -14,6 +14,7 @@ namespace Weasel.Components
         protected override string CoAuthor => "";
 
         public override Guid ComponentGuid => new Guid("E8343DBA-A36D-4B87-9280-3CAC657DCA28");
+
         // protected override System.Drawing.Bitmap Icon => Resources.<specific icon>;
 
 

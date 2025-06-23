@@ -12,8 +12,9 @@ namespace Weasel
 {
     public abstract class WeaselComponent : GH_Component
     {
-        // Virtual icon - components can override but don't have to
-        protected virtual new System.Drawing.Bitmap Icon => Resources.Weasel;
+
+        // Override the GH_Component's Icon property properly
+        protected override System.Drawing.Bitmap Icon => Resources.Weasel_transparent;
 
         // Abstract properties for authorship
         protected abstract string Author { get; }
