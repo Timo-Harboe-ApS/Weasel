@@ -13,7 +13,7 @@ namespace Weasel.Components
         /// Initializes a new instance of the CompareTicks class.
         /// </summary>
         public CompareTicksComponent()
-          : base("Compare Time", "CmpT", "Is A more recent than B?", "Weasle", "Time")
+          : base("Compare Time", "CmpT", "Is A more recent than B?", "Weasel", "Time")
         {
         }
 
@@ -56,19 +56,6 @@ namespace Weasel.Components
 
             bool isNewer = timeA.Ticks > timeB.Ticks;
             DA.SetData(0, isNewer);
-        }
-
-        /// <summary>
-        /// Provides an Icon for the component.
-        /// </summary>
-        protected override System.Drawing.Bitmap Icon
-        {
-            get
-            {
-                //You can add image files to your project resources and access them like this:
-                // return Resources.IconForThisComponent;
-                return null;
-            }
         }
 
         /// <summary>

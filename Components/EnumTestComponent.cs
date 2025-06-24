@@ -20,7 +20,7 @@ namespace Weasel.Components
 
         public EnumTestComponent()
           : base("EnumTestComponent", "enumTest",
-              "description", "Weasle", "Time")
+              "description", "Weasel", "Time")
         {
         }
 

@@ -18,7 +18,7 @@ namespace Weasel.Components
         public TimestampComponent()
           : base("TimeStamp", "TS",
             "Get the timestamp, as an int, of when the input expired",
-            "Weasle", "Time")
+            "Weasel", "Time")
         {
         }
 
@@ -54,19 +54,6 @@ namespace Weasel.Components
         {
             long ticks = DateTime.Now.Ticks;
             DA.SetData(0, ticks);
-        }
-
-        /// <summary>
-        /// Provides an Icon for the component.
-        /// </summary>
-        protected override System.Drawing.Bitmap Icon
-        {
-            get
-            {
-                //You can add image files to your project resources and access them like this:
-                // return Resources.IconForThisComponent;
-                return null;
-            }
         }
 
         /// <summary>
